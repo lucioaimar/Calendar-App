@@ -23,6 +23,7 @@
       text-align: center;
       box-shadow: -1px -1px #808080, inset -1px -1px 0 0 #808080;
       width: calc(100%/7);
+
       div{
         margin: 5px;
       }
@@ -45,18 +46,6 @@
       flex-shrink: 1;
       flex-basis: 0;
       box-shadow: -1px -1px #808080, inset -1px -1px 0 0 #808080;
-    }
-    @media (max-width:500px){
-      .day-names{
-        display: none;
-      }
-      .week {
-        flex-direction:column;
-        height: unset;
-      }
-      .week-date{
-        min-height: 90px;
-      }
     }
   }
 }
