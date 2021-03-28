@@ -1,0 +1,17 @@
+
+.weather-container {
+  display       : flex;
+  flex-direction: row;
+  align-self    : left;
+  width         : 100%;
+}
+
+.weather-min-max-container {
+  display       : flex;
+  flex-direction: column;
+  align-self    : center;
+}
+
+.weather-image{
+  margin-left: auto;
+}

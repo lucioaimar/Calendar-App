@@ -1,0 +1,11 @@
+<div class="reminder"
+   [style.background-color]="reminder.color"
+   (click)="showReminderDetail()"
+>
+  <div class="title">
+      <span class="hour">
+          {{reminder.date | date:'shortTime'}}
+      </span>
+      {{reminder.title}}
+  </div>
+</div>

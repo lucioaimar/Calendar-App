@@ -1,0 +1,13 @@
+.reminder-item{
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  .title{
+    font-size: 1.1rem;
+    margin: 10px;
+  }
+  button{
+    margin-left: 40px;
+    float:right;
+  }
+}

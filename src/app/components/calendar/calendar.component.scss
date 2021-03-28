@@ -1,0 +1,62 @@
+@import "../../../styles-variables.scss";
+
+.calendar-month {
+  display: block;
+  margin: 10px auto;
+  overflow: hidden;
+  .month-grid {
+    height: 100%;
+    .day-names {
+      display: flex;
+      height: 30px;
+      flex-direction: row;
+      background: $concrete;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+      background-color: #5151aa;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+    }
+    .day-name
+    {
+      text-align: center;
+      box-shadow: -1px -1px #808080, inset -1px -1px 0 0 #808080;
+      width: calc(100%/7);
+      div{
+        margin: 5px;
+      }
+    }
+    .weeks {
+      display: flex;
+      flex-direction: column;
+    }
+    .week {
+      display: flex;
+      flex-direction: row;
+      height: 130px
+    }
+    .week-date,
+    .day-name
+    {
+      max-width: calc(100%/7);
+      text-align: center;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: 0;
+      box-shadow: -1px -1px #808080, inset -1px -1px 0 0 #808080;
+    }
+    @media (max-width:500px){
+      .day-names{
+        display: none;
+      }
+      .week {
+        flex-direction:column;
+        height: unset;
+      }
+      .week-date{
+        min-height: 90px;
+      }
+    }
+  }
+}

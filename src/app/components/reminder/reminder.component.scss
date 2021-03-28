@@ -1,0 +1,15 @@
+.reminder{
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  max-width: 100%;
+  .hour{
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .title{
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+  }
+}

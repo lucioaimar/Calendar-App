@@ -1,0 +1,50 @@
+<ng-container *ngIf="reminder$ | async; let reminder">
+
+  <h2 mat-dialog-title>{{reminder.title}}</h2>
+
+  <div *ngIf="weather" class="weather-container">
+    <div class="weather-min-max-container">
+      <div>
+        <b>Weather:</b> {{weather.weather[0].main}}
+      </div>
+      <div>
+        <b>Temp Max:</b> {{KToC(weather.main.temp_max)}} C°
+      </div>
+      <div>
+        <b>Temp Min:</b> {{KToC(weather.main.temp_min)}} C°
+      </div>
+      <div>
+        <b>Wind Speed</b> {{weather.wind.speed}}
+      </div>
+    </div>
+    <img class="weather-image" [src]="getIconUrl(weather.weather[0].icon)" />
+  </div>
+
+  <p>
+    <b>Reminder date:</b> {{reminder.date| date:'shortDate'}}
+  </p>
+  <p>
+    <b>Reminder time:</b> {{reminder.date| date:'shortTime'}}
+  </p>
+  <p *ngIf="reminder.city">
+    <b>City:</b> {{reminder.city| titlecase}}
+  </p>
+
+
+  <mat-dialog-actions>
+
+    <button mat-button (click)="edit(reminder)">
+      Edit
+    </button>
+    <button mat-button (click)="delete(reminder)">
+      Delete
+    </button>
+    <button mat-button (click)="deleteAll(reminder)">
+      Delete all this day
+    </button>
+    <button mat-button (click)="close()" color="primary">
+      Close
+    </button>
+
+  </mat-dialog-actions>
+</ng-container>

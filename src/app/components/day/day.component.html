@@ -1,0 +1,26 @@
+<div *ngIf="day"
+class="day"
+[class.day-disabled]="day.outOfMonth"
+[class.day-weekend]="day.isWeekend"
+
+>
+  <div class="calendar-cell-top">
+    <span>
+      {{ day.date | date:'d' }}
+    </span>
+    <span>
+      <mat-icon matTooltip="Add a reminder on this day" (click)="addReminder(day.date)" color="primary">add_circle</mat-icon>
+      <mat-icon *ngIf="(reminders$ | async).length" matTooltip="Delete all reminders on this day" (click)="deleteAll(day.date)" color="warn">delete</mat-icon>
+    </span>
+  </div>
+  <div *ngIf="reminders$ | async; let reminders">
+    <ng-container *ngFor="let reminder of reminders.slice(0, 4);">
+      <app-reminder [reminder]="reminder">
+      </app-reminder>
+    </ng-container>
+    <div class="see-more" *ngIf="reminders.length > 4" (click)="seeMore(day.date)">See {{reminders.length - 4}} more</div>
+  </div>
+
+
+
+</div>

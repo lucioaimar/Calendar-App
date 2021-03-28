@@ -1,0 +1,22 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav-content>
+    <mat-toolbar class="fixed-header white-text" color="primary">
+      <span>Add Reminder</span>
+      <span>
+        <button mat-icon-button (click)="addReminder()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button (click)="decreaseMonth()" mat-icon-button>
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        {{selectedMonth | date: 'MMM, y'}}
+        <button (click)="incrementMonth()" mat-icon-button>
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </span>
+
+    </mat-toolbar>
+    <app-calendar [selectedMonth]="selectedMonth"></app-calendar>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Reminders on {{date | date : 'shortDate'}}</h2>
+<mat-dialog-content>
+  <mat-list>
+    <ng-container *ngFor="let reminder of reminders$ | async">
+      <mat-list-item class="reminder-item" [style.background-color]="reminder.color">
+        <b>{{reminder.date | date:'shortTime'}}</b>
+        <p class="title">{{reminder.title}}</p>
+        <button mat-icon-button matTooltip="Delete this reminder" (click)="delete(reminder)">
+          <mat-icon>delete</mat-icon>
+        </button></mat-list-item>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </mat-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+
+  <button mat-button (click)="deleteAll(date)">
+    Delete all
+  </button>
+
+  <button mat-button (click)="close()" color="primary">
+    Close
+  </button>
+
+</mat-dialog-actions>
