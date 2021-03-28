@@ -41,7 +41,6 @@ export class ReminderListComponent implements OnInit {
     this.store.dispatch(
       new ReminderActions.DeleteReminderAction(reminder.id)
     );
-    this.dialogRef.close();
   }
 
   showReminderDetail(reminder: Reminder) {

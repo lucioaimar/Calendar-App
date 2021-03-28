@@ -2,12 +2,19 @@
 <mat-dialog-content>
   <mat-list>
     <ng-container *ngFor="let reminder of reminders$ | async">
-      <mat-list-item class="reminder-item" (click)="showReminderDetail(reminder)" [style.background-color]="reminder.color">
+      <mat-list-item class="reminder-item"
+        [style.background-color]="reminder.color">
         <b>{{reminder.date | date:'shortTime'}}</b>
         <p class="title">{{reminder.title}}</p>
-        <button mat-icon-button matTooltip="Delete this reminder" (click)="delete(reminder)">
-          <mat-icon>delete</mat-icon>
-        </button></mat-list-item>
+        <div class="button-container">
+          <button mat-icon-button matTooltip="View this reminder detail" (click)="showReminderDetail(reminder)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Delete this reminder" (click)="delete(reminder)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-list-item>
       <mat-divider></mat-divider>
     </ng-container>
   </mat-list>
