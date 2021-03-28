@@ -6,7 +6,9 @@ import { AppState } from 'src/app/store/app.reducer';
 import { Reminder } from 'src/app/store/reminder/reminder.model';
 import { ReminderDetailComponent } from '../reminder-detail/reminder-detail.component';
 import * as ReminderActions from '../../store/reminder/reminder.actions';
+import * as SelectedReminderActions from '../../store/selected-reminder/selected-reminder.actions';
 import { getRemindersByDate } from 'src/app/store/reminder/reminder.selectors';
+
 
 @Component({
   selector: 'app-reminder-list',
@@ -40,6 +42,12 @@ export class ReminderListComponent implements OnInit {
       new ReminderActions.DeleteReminderAction(reminder.id)
     );
     this.dialogRef.close();
+  }
+
+  showReminderDetail(reminder: Reminder) {
+    this.store.dispatch(
+      new SelectedReminderActions.SelectedReminderAction(reminder)
+    );
   }
 
   deleteAll(date: Date) {
